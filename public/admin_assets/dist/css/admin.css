@@ -1,0 +1,190 @@
+[class*=icheck-]>input:first-child+label::before {
+    border-radius: 22px;
+}
+
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 400;
+}
+
+.color_cus {
+    color: #666;
+}
+
+.info-box-text {
+    text-transform: uppercase;
+}
+
+.file-upload {
+    position: relative;
+    width: 75%;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.input-file-trigger {
+    display: block;
+    padding: 8px;
+    color: #8A94BE;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+    border-radius: .25rem;
+    border: 1px dashed #8A94BE;
+}
+
+.input-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    padding: 14px 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.font-11 {
+    font-size: 11px;
+}
+
+
+.modal-body {
+    padding: 0px;
+}
+
+
+/* loading css */
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+#diemdanh_table th {
+    font-weight: 400;
+}
+
+#cke_event_content,
+.cke_chrome {
+    width: 100%;
+}
+
+.page-item.active .page-link {
+    background: #127a8b;
+    border-color: #127a8b;
+}
+
+.page-link {
+    color: #127a8b;
+}
+
+.content-header h1 {
+    font-weight: 400;
+}
+
+a {
+    color: #17a2b8;
+}
+
+#custom-tabs-two-tab .nav-item {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#custom-tabs-two-tab .nav-item a {
+    font-size: 20px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#custom-tabs-two-tab .nav-item .active {
+    background: #e8e8e8;
+    border: unset;
+}
+
+#custom-tabs-two-tab {
+    border-bottom: 0px;
+}
+
+#custom-tabs-two-tab .nav-item a:hover {
+    border: 0px;
+    background: #e8e8e8;
+}
+
+input[type="checkbox"] {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
+.custom-file-input {
+    cursor: pointer;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-edit-width .modal-dialog {
+        max-width: 100% !important;
+    }
+    .modal-dialog {
+        max-width: 750px;
+        margin: 1.75rem auto;
+    }
+}

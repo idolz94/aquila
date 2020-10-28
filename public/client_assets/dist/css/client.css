@@ -1,0 +1,20 @@
+.cus_media {
+    justify-content: space-between;
+}
+
+th {
+    font-weight: 400;
+}
+
+.font-11 {
+    font-size: 11px;
+}
+
+label {
+    font-weight: 400 !important;
+}
+
+.page-item.active .page-link {
+    background: #127a8b;
+    border-color: #127a8b;
+}
