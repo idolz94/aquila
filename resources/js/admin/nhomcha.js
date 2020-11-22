@@ -122,7 +122,7 @@ $(function() {
                 // console.log(data)
                 if (data.status == 500) {
                     let htmlCode = `<strong>Tên nhóm chính đã có ! mời nhập tên khác</strong><br>`;
-                    $('.text-danger.ten').html(htmlCode);
+                    $('.text-danger.ten_update').html(htmlCode);
                 }
 
             },

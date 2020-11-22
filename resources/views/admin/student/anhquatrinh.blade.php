@@ -36,13 +36,19 @@
                                     <div class="card-body">     
                                       <div classs="row">
                                         <!-- ./ col   -->
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-8 d-inline-block">
                                           <div id="multipe_img" class="row">
                                           </div>
                                           <div class="form-group file-upload m-auto">
                                             <label class="input-file-trigger" for="multifileupload"><i class="fas fa-file-upload"></i> Tải ảnh ( Tối đa 5 ảnh) </label>
                                             <input type="file" multiple class="form-control input-file" id="multifileupload" placeholder="" name="images[]">
                                           </div>
+                                        </div>
+                                        <div class="col-lg-3 mt-4 d-inline-block ">
+                                          <select name="images_type" id="" class="form-control">
+                                              <option value="0">Xoá ảnh cũ và cập nhật</option>
+                                              <option value="1">Giữ ảnh cũ và cập nhật</option>
+                                          </select>
                                         </div>
                                   
                                       </div>

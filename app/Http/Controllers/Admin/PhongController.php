@@ -213,25 +213,49 @@ class PhongController extends Controller
         $id = explode('_',$id);
         $phong = $this->phongService->find($id[1]);
         if($phong->ten_phong == $request->ten_phong){
+            if($request->vi_tri == NULL){
+                return response()->json([
+                    'status' => 'vi_tri_update',
+                ],422);
+            }
             $phong->vi_tri = $request->vi_tri;
             $phong->save();
             Session::flash('message', trans('Thêm thành công ! '));
             return response()->json([
                 'status' => true,
-            ]);
+            ],200);
+         
         }else{
-            if($request->ten_phong !== NULL && $request->vi_tri !== NULl){
-                $result = $this->phongService->update($request->all(),$id[1]);
-                if ($result) {
-                    Session::flash('message', trans('Thêm thành công ! '));
-                    return response()->json([
-                        'status' => true,
-                    ]);
-                }
+            if($request->ten_phong == NULL && $request->vi_tri == NULL){
+                return response()->json([
+                    'status' => 'null',
+                ],422);
+               
+            }if($request->ten_phong == NULL){
+                return response()->json([
+                    'status' => 'ten_phong_update',
+                ],422);
+            }if($request->vi_tri == NULL){
+                return response()->json([
+                    'status' => 'vi_tri_update',
+                ],422);
+            }if(Phong::where('ten_phong',$request->ten_phong)->first()){
+                return response()->json([
+                    'status' => 'trung',
+                ],422);
+            }
+            $result = $this->phongService->update($request->all(),$id[1]);
+            if ($result) {
+                Session::flash('message', trans('Thêm thành công ! '));
+                return response()->json([
+                    'status' => true,
+                ]);
             }
         }
         Session::flash('error', trans('Thêm thất bại !'));
-        return back();
+        return response()->json([
+            'status' => false,
+        ],422);
     }
 
 

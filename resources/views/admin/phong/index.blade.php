@@ -125,12 +125,12 @@
                     <div class="form-group">
                         <label>Tên phòng</label>
                     <input type="text" name="ten_phong" value="" class="form-control">
-                        <span class="text-danger ten_phong" role="alert"></span>
+                        <span class="text-danger ten_phong_update" role="alert"></span>
                     </div>
                     <div class="form-group">
                         <label>Vị trí phòng</label>
                         <input type="text" name="vi_tri"  value="" class="form-control">
-                        <span class="text-danger vi_tri" role="alert"></span>
+                        <span class="text-danger vi_tri_update" role="alert"></span>
                     </div>
                 </div>
                 <div class="card-footer">

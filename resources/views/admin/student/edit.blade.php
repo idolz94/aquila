@@ -363,10 +363,12 @@
                         </div>
                         
                         <!-- /.card-header -->
-                        <div class="card-body">     
+                        <div class="card-body">  
+                            
                             <div class="row">
                             <!-- ./ col   -->
-                            <div class="col-lg-12">
+                           
+                            <div class="col-lg-10">
                                 <div id="multipe_img" class="row">
                                 </div>
                                 <div class="form-group file-upload m-auto">
@@ -376,14 +378,23 @@
                                     <span class="text-danger font-11" role="alert">{{ $errors->first('images') }}</span>
                                 @endif
                                 </div>
+                               
+                            </div>
+                            <div class="col-lg-2 mt-4">
+                                <select name="images_type" id="" class="form-control">
+                                    <option value="0">Xoá ảnh cũ và cập nhật</option>
+                                    <option value="1">Giữ ảnh cũ và cập nhật</option>
+                                </select>
                             </div>
                         
                             </div>
-                            @foreach ($hocVien->anhhocvien()->get() as $image)
-                            <div class="col-md-3">
-                              <a data-fancybox="gallery" href="{{ asset(show_original_img(Config::get('images.paths.image_hocvien'), $image->anh_hoc_vien)) }}"><img class="img-fluid" src="{{ asset(show_original_img(Config::get('images.paths.image_hocvien'), $image->anh_hoc_vien)) }}"></a>
+                            <div class="row">
+                                @foreach ($hocVien->anhhocvien()->get() as $image)
+                                    <div class="col-md-3">
+                                        <a data-fancybox="gallery" href="{{ asset(show_original_img(Config::get('images.paths.image_hocvien'), $image->anh_hoc_vien)) }}"><img class="img-fluid" src="{{ asset(show_original_img(Config::get('images.paths.image_hocvien'), $image->anh_hoc_vien)) }}"></a>
+                                    </div>
+                                @endforeach
                             </div>
-                          @endforeach
                         </div>
                         <!-- /.card-body -->
                     </div>

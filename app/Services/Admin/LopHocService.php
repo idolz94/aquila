@@ -44,7 +44,7 @@ class LopHocService extends BaseService
        }
     }
 
-    public function diem_lydo(){
+    public function diem_lydo($request){
         return DB::table('diem_mon_hocs')
         ->Leftjoin('hoc_viens', 'diem_mon_hocs.hoc_vien_id', '=', 'hoc_viens.id')
         ->select('hoc_viens.*', 'diem_mon_hocs.diem','diem_mon_hocs.created_at')

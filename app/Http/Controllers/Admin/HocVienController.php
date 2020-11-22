@@ -200,7 +200,8 @@ class HocVienController extends Controller
             'chieu_cao', 
             'can_nang',
             'avatar_hocvien',
-            'images'
+            'images',
+            'images_type'
         ]);
 
         $hocVienUpdated = $this->hocvienService->edit($data, $id);

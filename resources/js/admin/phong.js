@@ -166,6 +166,7 @@ $(function() {
         let urlIndex = $(this).data('url-index');
         let formData = new FormData()
         let formElement = $(this);
+        let type = $(this).attr('method');
         formElement.find('input[name]').each(function(i, e) {
             if (Array.isArray($(e).val())) {
                 $(e).val().forEach(function(v) {
@@ -179,18 +180,37 @@ $(function() {
 
         $.ajax({
             url: url_group_edit,
-            type: 'POST',
+            type: type,
             data: formData,
             contentType: false,
             cache: false,
             processData: false,
             success: data => {
-                console.log(data)
-                window.location.href = urlIndex;
+                if (data.status == true) {
+                    window.location.href = urlIndex;
+                }
             },
             error: data => {
-                let htmlCode = `<strong>Tên Phòng đã có, mời nhập tên khác</strong><br>`
-                $('.text-danger.ten_phong').html(htmlCode)
+                console.log(data.responseJSON)
+                if (data.responseJSON.status == "null") {
+                    let htmlCode = `<strong>tên phòng không được để trống</strong><br>`
+                    $('.text-danger.ten_phong_update').html(htmlCode)
+                    let htmlViTri = `<strong>Vị trí không được để trống</strong><br>`
+                    $('.text-danger.vi_tri_update').html(htmlViTri)
+                }
+                if (data.responseJSON.status == "trung") {
+                    let htmlCode = `<strong>tên phòng đã có</strong><br>`
+                    $('.text-danger.ten_phong_update').html(htmlCode)
+                }
+                if (data.responseJSON.status == "ten_phong_update") {
+                    let htmlCode = `<strong>tên phòng không được để trống</strong><br>`
+                    $('.text-danger.ten_phong_update').html(htmlCode)
+                }
+                if (data.responseJSON.status == "vi_tri_update") {
+                    let htmlViTri = `<strong>Vị trí không được để trống</strong><br>`
+                    $('.text-danger.vi_tri_update').html(htmlViTri)
+                }
+
             },
             // xhr: progressUpload,
         })

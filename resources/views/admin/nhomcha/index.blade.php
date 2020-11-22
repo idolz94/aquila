@@ -82,8 +82,8 @@
                             <span class="input-group-text"><i class="fas fa-layer-group"></i></span>
                         </div>
                         <input type="text" name="ten" class="form-control" placeholder="Tên nhóm">
-                        <span class="text-danger ten" role="alert"></span>
                     </div>
+                    <span class="text-danger ten" role="alert"></span>
                 </div>
             </div>
             <div class="card-footer">
@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <label>Tên nhóm</label>
                         <input type="text" name="ten" value="" class="form-control" placeholder="Tên nhóm">
-                        <span class="text-danger ten" role="alert"></span>
+                        <span class="text-danger ten_update" role="alert"></span>
                     </div>
                 </div>
                 <div class="card-footer">

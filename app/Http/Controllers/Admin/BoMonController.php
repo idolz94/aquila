@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\BoMonService;
 use App\Http\Requests\Admin\BoMonRequest;
+use App\Models\BoMon;
 use Exception;
 use Session;
 
@@ -102,23 +103,27 @@ class BoMonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BoMonRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        if(BoMon::where('ten_bo_mon',$request->ten_bo_mon)->where('id',$id)->first()){
+            $request->request->remove('ten_bo_mon');
+           
+        }if(BoMon::where('ten_bo_mon',$request->ten_bo_mon)->first()){
+            // Session::flash('error', trans('Thêm thất bại !'));
+            return response()->json([
+                'status' => false,
+            ],422); 
+        }
         $result = $this->bomonService->update($request->all(),$id);
-
         if ($result) {
-            Session::flash('message', trans('Thêm thành công ! '));
+            Session::flash('message', trans('Sửa thành công! '));
             return response()->json([
                 'status' => true,
             ]);
             // return redirect()->route('admin.bomon.index');
         }
-
-        Session::flash('error', trans('Thêm thất bại !'));
-        return response()->json([
-            'status' => false,
-        ]);
-        // return back();
+   
+      
     }
 
     /**

@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <label>Tên bộ môn</label>
                         <input type="text" name="ten_bo_mon" class="form-control text-capitalize" placeholder="Tên bộ môn">
-                        <span class="text-danger ten_bo_mon" role="alert"></span>
+                        <span class="text-danger ten_bo_mon_update" role="alert"></span>
                     </div>
                 </div>
                 <div class="card-footer">

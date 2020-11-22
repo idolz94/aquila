@@ -57,12 +57,7 @@
                                                             <td></td>
                                                             <td>{{$hocvien->ma_hoc_vien}}</td>
                                                             <td>
-                                                            @if($hocvien->avatar_url !== NULL)
                                                                 <img class="user_avatar profile-user-img img-fluid img-circle" src="" data-src-image="{{$hocvien->avatar_url}}" />
-                                                            </td>
-                                                            @else 
-                                                                <img src="/admin_assets/images/logo/logo-aq-h.png" class="user_avatar profile-user-img img-fluid img-circle" alt=""></td>
-                                                            @endif
                                                             </td>
                                                             <td>{{$hocvien->ten}}</td>
                                                             <td> 

@@ -97,6 +97,7 @@ $(function() {
             let urlIndex = $(this).data('url-index');
             let formData = new FormData()
             let formElement = $(this);
+            let type = $(this).attr('method');
             formElement.find('input[name]').each(function(i, e) {
                 if (Array.isArray($(e).val())) {
                     $(e).val().forEach(function(v) {
@@ -110,7 +111,7 @@ $(function() {
 
             $.ajax({
                 url: url,
-                type: 'POST',
+                type: type,
                 data: formData,
                 contentType: false,
                 cache: false,
@@ -120,7 +121,8 @@ $(function() {
                 },
                 error: data => {
                     if (data.status == 422) {
-                        showMessErrForm(data.responseJSON.errors)
+                        let htmlCode = `<strong>Tên bộ môn đã có, mời nhập tên khác</strong><br>`
+                        $('.text-danger.ten_bo_mon_update').html(htmlCode)
                     }
                 },
                 // xhr: progressUpload,

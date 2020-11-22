@@ -96,8 +96,7 @@ class MonHocController extends Controller
     {
         $monhoc = $this->monhocService->find($id);
         $bomons = BoMon::all();
-        return response()->json(['monhoc'=>$monhoc,'bomon'=>$bomon]);
-        // return view('admin.monhoc.edit',compact('monhoc','bomons'));
+        return view('admin.monhoc.edit',compact('monhoc','bomons'));
     }
 
     /**

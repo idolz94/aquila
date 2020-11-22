@@ -149,17 +149,23 @@ class HocVienService extends BaseService
                     $fileName = ImageService::uploadFile($image, $typeImages, config('images.paths.' . $typeImages));
                     $hocVien->anhhocvien()->create(['anh_hoc_vien' => $fileName]);
                 }
-
-                if (count($imageHocVien)) {
-                    foreach ($imageHocVien as $img) {
-                        foreach (config('images.dimensions.image_hocvien') as $size => $value) {
-                            $fileNameImage = ($size == 'original' ? 'original' : $size ) . '/' . $img->anh_hoc_vien;
-    
-                            if ($fileName) {
-                                ImageService::delete(config('images.paths.' . $typeImages), $fileNameImage);
+                // }else{
+                //     foreach ($dataHocVien['images'] as $image) {
+                //         $fileName = ImageService::uploadFile($image, $typeImages, config('images.paths.' . $typeImages));
+                //         $hocVien->anhhocvien()->create(['anh_hoc_vien' => $fileName]);
+                //     }
+                if($dataHocVien['images_type'] == 0){        
+                    if (count($imageHocVien)) {
+                        foreach ($imageHocVien as $img) {
+                            foreach (config('images.dimensions.image_hocvien') as $size => $value) {
+                                $fileNameImage = ($size == 'original' ? 'original' : $size ) . '/' . $img->anh_hoc_vien;
+        
+                                if ($fileName) {
+                                    ImageService::delete(config('images.paths.' . $typeImages), $fileNameImage);
+                                }
                             }
+                            $img->delete();
                         }
-                        $img->delete();
                     }
                 }
             }
@@ -200,14 +206,31 @@ class HocVienService extends BaseService
 
     public function addImageQuaTrinh($request){
         $hocvien = $this->findOrFail($request['id']);
+        $imageHocVien = $hocvien->anhquatrinh()->get();  
+        // dd($imageHocVien,$request);
         if (isset($request['images'])) {
             $typeImages = 'image_hocvien';
             foreach ($request['images'] as $image) {
                 $fileName = ImageService::uploadFile($image, $typeImages, config('images.paths.' . $typeImages));
                 $hocvien->anhquatrinh()->create(['anh_hoc_vien' => $fileName]);
             }
+            if($request['images_type'] == 0){  
+                if (count($imageHocVien)) {
+                    foreach ($imageHocVien as $img) {
+                        foreach (config('images.dimensions.image_hocvien') as $size => $value) {
+                            $fileNameImage = ($size == 'original' ? 'original' : $size ) . '/' . $img->anh_hoc_vien;
+    
+                            if ($fileName) {
+                                ImageService::delete(config('images.paths.' . $typeImages), $fileNameImage);
+                            }
+                        }
+                        $img->delete();
+                    }
+                }
+            }
             return true;
         }
+
         return false;
     }
 
